@@ -13,6 +13,7 @@ populateForm();
 
 function onFormSubmit(e) {
   e.preventDefault();
+
   console.log(parsedSettings);
   e.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
@@ -24,8 +25,10 @@ function onInputValue(e) {
 }
 
 function populateForm() {
-  if (parsedSettings) {
+  if (parsedSettings.message) {
     form.elements.message.value = parsedSettings.message;
+  }
+  if (parsedSettings.email) {
     form.elements.email.value = parsedSettings.email;
   }
 }
