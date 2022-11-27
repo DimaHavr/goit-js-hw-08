@@ -4,9 +4,9 @@ const form = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
 const savedSettings = localStorage.getItem(STORAGE_KEY);
 const parsedSettings = JSON.parse(savedSettings);
-
+console.log(parsedSettings.message);
 const formData = { ...parsedSettings };
-
+console.log(formData.message);
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(onInputValue, 500));
 
@@ -27,6 +27,7 @@ function onInputValue(e) {
 
 function populateForm() {
   if (formData.message) {
+    console.log(formData);
     form.elements.message.value = formData.message;
   }
   if (formData.email) {
